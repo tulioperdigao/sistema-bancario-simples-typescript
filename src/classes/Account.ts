@@ -2,7 +2,8 @@ export abstract class Account {
     // Atributos
     private name: string;
     private readonly accountNumber: number;
-    balance: number = 0;
+    private balance: number = 0;
+    private status: boolean = true;
 
     // Construtor
     constructor (name: string, accountNumber: number) {
@@ -11,16 +12,42 @@ export abstract class Account {
     }
 
     // Métodos
-    deposit = (value: number) => {
-
+    deposit = (value: number): void => {
+        this.balance += value;
+        console.log(`✅ Depositado com sucesso: R$${value},00.`)
     }
 
-    withdraw = (value: number) => {
-
+    withdraw = (value: number): void => {
+        if (this.status === true && value <= this.balance) {
+            this.balance -= value;
+            console.log(`➖ Saque efetuado com sucesso: -R$${value},00.`)
+        } else {
+            if (this.status === false) {
+                this.validateStatus();
+            } else {
+                console.log('❌ Operação Inválida! Saldo Insuficiente.')
+            }
+        }
     }
 
-    getBalance = () => {
-        console.log(this.balance);
+    getBalance = (): void => {
+        console.log(`O saldo da conta é: ${this.balance}`);
     }
 
+    private validateStatus = (): boolean => {
+        if (this.status) {
+            return this.status;
+        } else {
+            throw Error('Conta Inválida!');
+        }
+    }
+
+    getStatus = (): boolean => {
+        return this.status;
+    }
+
+    setBalance = (value: number): void => {
+        this.balance += value;
+    }
+    
 }

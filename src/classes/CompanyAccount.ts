@@ -8,8 +8,14 @@ export class CompanyAccount extends Account {
     }
 
     // Métodos
-    getLoan = () => {
-        
+    getLoan = (value: number) => {
+        const accountStatus = this.getStatus();
+        if (accountStatus === true) {
+            this.setBalance(value);
+            console.log(`💸 Empréstimo realizado com sucesso: R$${value},00.`)
+        } else {
+            console.log('🚨 Empréstimo negado! Conta inválida.')
+        }
     }
 
 }

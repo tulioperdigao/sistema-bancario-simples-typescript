@@ -2,7 +2,7 @@ import { Account } from "./Account";
 
 export class PeopleAccount extends Account{
     // Atributos
-    documentId: number;
+    private readonly documentId: number;
 
     // Construtor
     constructor (documentId: number, accountNumber: number, name: string) {
