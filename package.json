@@ -1,0 +1,28 @@
+{
+  "name": "sistema-bancario-simples-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dist": "tsup src",
+    "start:dev": "tsx src/index.ts",
+    "start:dist": "npm run dist && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tulioperdigao/sistema-bancario-simples-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tulioperdigao/sistema-bancario-simples-typescript/issues"
+  },
+  "homepage": "https://github.com/tulioperdigao/sistema-bancario-simples-typescript#readme",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
